@@ -1,4 +1,5 @@
 import { getAllProducts } from "../services/product.service.js";
+import { route, handleLocation } from "../../router.js";
 
 const AllProducts = () => {
   return ` <!-- All Products -->
@@ -40,6 +41,14 @@ const allProductsOnMount = async () => {
               </div>
             </div>
           </a>`;
+  });
+
+  // Routing Handler
+  const productCards = document.querySelectorAll(".product-card");
+  productCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      route(card, e);
+    });
   });
 };
 

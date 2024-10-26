@@ -1,7 +1,5 @@
-import { homePage } from "./pages/homePage.js";
-
+import { handleLocation } from "./router.js";
 const app = () => {
-  homePage();
+  handleLocation();
 };
-
 app();

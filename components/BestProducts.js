@@ -1,4 +1,5 @@
 import { getBestProducts } from "../services/product.service.js";
+import { route, handleLocation } from "../../router.js";
 
 const BestProducts = () => {
   return `<!-- Best Products -->
@@ -62,6 +63,14 @@ const bestProductsOnMount = async () => {
   });
 
   bestProductsScrollerHandler();
+
+  // Routing Handler
+  const productCards = document.querySelectorAll(".product-card");
+  productCards.forEach((card) => {
+    card.addEventListener("click", (e) => {
+      route(card, e);
+    });
+  });
 };
 
 // Best Products Scroller

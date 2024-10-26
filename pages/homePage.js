@@ -5,22 +5,18 @@ import { Category } from "../components/Category.js";
 import { AllProducts, allProductsOnMount } from "../components/AllProducts.js";
 import { Footer } from "../components/Footer.js";
 
-const root = document.getElementById("root");
-
 const homePage = async () => {
-  root.innerHTML = `
+  return `
   ${await Navbar()}
   ${Jumbotron()}
   ${BestProducts()}
   ${Category()}
   ${AllProducts()}
   ${Footer()}
-
+  ${jumbotronOnMount()};
+  ${bestProductsOnMount()};
+  ${allProductsOnMount()};
   `;
-
-  jumbotronOnMount();
-  bestProductsOnMount();
-  allProductsOnMount();
 };
 
 export { homePage };
