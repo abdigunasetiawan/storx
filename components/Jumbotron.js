@@ -30,6 +30,7 @@ const jumbotronOnMount = () => {
     loop: true,
     delay: 1000,
   });
+  return "";
 };
 
 export { Jumbotron, jumbotronOnMount };

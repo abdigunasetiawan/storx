@@ -6,17 +6,20 @@ import { AllProducts, allProductsOnMount } from "../components/AllProducts.js";
 import { Footer } from "../components/Footer.js";
 
 const homePage = async () => {
-  return `
-  ${await Navbar()}
-  ${Jumbotron()}
-  ${BestProducts()}
-  ${Category()}
-  ${AllProducts()}
-  ${Footer()}
-  ${jumbotronOnMount()};
-  ${bestProductsOnMount()};
-  ${allProductsOnMount()};
+  const homePageContent = `
+    ${Navbar()}
+    ${Jumbotron()}
+    ${BestProducts()}
+    ${Category()}
+    ${AllProducts()}
+    ${Footer()}
   `;
+  const root = document.getElementById("root");
+  root.innerHTML = homePageContent;
+
+  jumbotronOnMount();
+  await bestProductsOnMount();
+  await allProductsOnMount();
 };
 
 export { homePage };

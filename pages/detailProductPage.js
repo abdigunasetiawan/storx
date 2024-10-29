@@ -3,10 +3,14 @@ import { Footer } from "../components/Footer.js";
 import { detailProduct, detailProductOnMount } from "../components/detailProduct.js";
 
 export const detailProductPage = async () => {
-  return `
+  const detailProductPageContent = `
   ${Navbar()}
   ${await detailProduct()}
-  ${detailProductOnMount()}
   ${Footer()}
   `;
+
+  const root = document.getElementById("root");
+  root.innerHTML = detailProductPageContent;
+
+  detailProductOnMount();
 };
