@@ -1,7 +1,7 @@
 import { Navbar } from "/components/Navbar.js";
 import { Jumbotron, jumbotronOnMount } from "../components/Jumbotron.js";
 import { BestProducts, bestProductsOnMount } from "../components/BestProducts.js";
-import { Category } from "../components/Category.js";
+import { Category, categoryOnMount } from "../components/Category.js";
 import { AllProducts, allProductsOnMount } from "../components/AllProducts.js";
 import { Footer } from "../components/Footer.js";
 
@@ -20,6 +20,7 @@ const homePage = async () => {
   jumbotronOnMount();
   await bestProductsOnMount();
   await allProductsOnMount();
+  categoryOnMount();
 };
 
 export { homePage };

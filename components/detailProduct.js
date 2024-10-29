@@ -2,13 +2,13 @@ import { getProduct } from "../services/product.service.js";
 
 const detailProduct = async () => {
   return `
-       <div class="min-h-[calc(100vh-(64px+16px+58px))] container mx-auto px-4 md:px-8 xl:px-16 mt-[calc(56px+16px)] xl:mt-[calc(64px+16px)] flex flex-col gap-y-4 lg:flex-row lg:gap-x-8 lg:items-center">
-          <div class="h-72 w-full">
-            <img class="product-image mx-auto h-full object-fill" src="" alt="" />
+       <div class="min-h-[calc(100vh-(64px+16px+58px))] container mx-auto px-4 md:px-8 xl:px-16 mt-[calc(56px+16px)] xl:mt-[calc(64px+16px)] flex flex-col gap-y-4 lg:flex-row lg:justify-center lg:gap-x-8 lg:items-center">
+          <div class="h-72 w-full lg:w-96">
+            <img class="product-image mx-auto h-full w-full lg:mx-0 object-contain" src="" alt="" />
           </div>
           <div class="h-px w-full bg-slate-200 lg:hidden"></div>
-          <div class="">
-            <h1 class="product-title text-2xl font-bold text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+          <div class="lg:max-w-xl">
+            <h1 class="product-title text-2xl font-bold text-slate-800"></h1>
             <p class="mt-1 text-lg font-bold text-slate-700">$ <span class="product-price"></span></p>
             <p class="mt-2 font-medium text-slate-700 product-description"></p>
             <div class="mt-4 flex gap-x-2">

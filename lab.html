@@ -1,0 +1,336 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+
+    <!-- Helper -->
+    <script defer src="https://cdn.jsdelivr.net/gh/abdigunasetiawan/css-layout-helper/index.js"></script>
+    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/abdigunasetiawan/css-layout-helper/index.css" />
+
+    <link rel="stylesheet" href="css/output.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar fixed left-0 top-0 z-50 w-full bg-white shadow">
+      <div class="container mx-auto flex h-14 w-full items-center justify-between px-4 md:gap-x-12 md:px-8 xl:h-16 xl:px-16">
+        <!-- Logo -->
+        <a href class="flex items-center gap-2">
+          <svg xmlns="http://www.w3.org/2000/svg" width="48" height="26" fill="none" viewBox="0 0 48 26">
+            <path fill="#000" d="M45.8 9.087a5.323 5.323 0 1 1-7.528-7.528A5.323 5.323 0 0 1 45.8 9.087Z" opacity=".4" />
+            <path fill="#000" d="M45.795 9.086a5.323 5.323 0 0 1-7.528 0l-7.434-7.434a5.323 5.323 0 1 0-7.528 7.528l7.434 7.434a5.323 5.323 0 0 0 7.528 0l7.528-7.528Z" opacity=".6" />
+            <path fill="#000" d="M38.267 16.615a5.323 5.323 0 0 1-7.528 0L16.311 2.187a7.097 7.097 0 0 0-10.038 0L0 8.46a5.323 5.323 0 0 1 7.528 0L23.21 24.143a5.323 5.323 0 0 0 7.528 0l7.528-7.528Z" />
+          </svg>
+          <span class="text-xl font-bold text-gray-800">Storx</span>
+        </a>
+        <!-- _Logo -->
+        <!-- Search Form -->
+        <form action="" class="hidden w-full md:block xl:max-w-xl">
+          <div class="relative flex h-10 items-center rounded-full border py-2 pl-10 pr-0">
+            <svg class="absolute left-2 w-6 stroke-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+            <input class="absolute inset-0 bg-transparent pl-10 outline-none" type="text" placeholder="Search Product..." />
+          </div>
+        </form>
+        <!-- _Search Form -->
+        <!-- Icons -->
+        <div class="flex items-center gap-2">
+          <a href="">
+            <svg class="w-6 stroke-gray-700 md:hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
+              <path d="M21 21l-6 -6" />
+            </svg>
+          </a>
+          <a href="">
+            <svg class="w-6 stroke-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-shopping-cart">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M6 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+              <path d="M17 17h-11v-14h-2" />
+              <path d="M6 5l14 1l-1 7h-13" />
+            </svg>
+          </a>
+          <a href="">
+            <svg class="w-6 stroke-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-user">
+              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+              <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0" />
+              <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+            </svg>
+          </a>
+        </div>
+        <!-- _Icons -->
+      </div>
+    </div>
+    <!-- _Navbar -->
+
+    <div class="category-product"></div>
+
+    <!-- Main -->
+    <main class="mt-[calc(56px+16px)] xl:mt-[calc(64px+16px)]">
+      <h1 class="text-center text-3xl font-bold text-slate-800">Jewellery</h1>
+      <div class="flex flex-wrap justify-between gap-y-8 p-2">
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] overflow-hidden rounded-xl shadow lg:w-[24%]">
+          <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
+            <button class="absolute right-4 top-4 z-20">
+              <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+              </svg>
+            </button>
+
+            <img class="h-full w-full object-contain object-center transition-transform duration-300 group-hover:scale-105" src="https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg" alt="" />
+          </div>
+          <div class="flex h-[100px] flex-col justify-between bg-white px-4 py-2.5">
+            <h1 class="line-clamp-2 text-pretty font-medium text-slate-800">Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h1>
+            <div class="mt-1 flex justify-between">
+              <p class="text-lg font-bold text-slate-700">$ 109.95</p>
+              <div class="flex items-center gap-1">
+                <svg class="fill-yellow-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon icon-tabler icons-tabler-filled icon-tabler-star">
+                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                  <path d="M8.243 7.34l-6.38 .925l-.113 .023a1 1 0 0 0 -.44 1.684l4.622 4.499l-1.09 6.355l-.013 .11a1 1 0 0 0 1.464 .944l5.706 -3l5.693 3l.1 .046a1 1 0 0 0 1.352 -1.1l-1.091 -6.355l4.624 -4.5l.078 -.085a1 1 0 0 0 -.633 -1.62l-6.38 -.926l-2.852 -5.78a1 1 0 0 0 -1.794 0l-2.853 5.78z" />
+                </svg>
+                <span class="font-medium text-slate-700">75</span>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </main>
+    <!-- _Main -->
+  </body>
+</html>
