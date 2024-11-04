@@ -1,30 +1,30 @@
 import { homePage } from "./pages/homePage.js";
 import { detailProductPage } from "./pages/detailProductPage.js";
 import { categoryPage } from "./pages/categoryPage.js";
+import { searchPage } from "./pages/searchPage.js";
 
-// const route = (el, event) => {
-//   event = event || window.event;
-//   window.history.pushState({}, "", el.href);
-//   event.preventDefault();
-//   handleLocation();
-// };
-
-const route = (el, event) => {
-  // alert("route trigered");
-  event = event || window.event;
-  if (window.location.pathname !== el.getAttribute("href")) {
-    window.history.pushState({}, "", el.href);
-  }
+const route = (link, event) => {
   event.preventDefault();
-  handleLocation();
+
+  console.log("route trigered");
+  event = event || window.event;
+  if (window.location.pathname !== link) {
+    console.log("history pushed");
+
+    window.history.pushState({}, "", link);
+    console.log("link tidak sama");
+    handleLocation();
+  } else {
+    console.log("link sama");
+  }
+
+  console.log(window.history);
 };
 
 const handleLocation = async () => {
   // alert("handle location trigered");
 
   const path = window.location.pathname.split("/")[1] || "/";
-  console.log(path);
-
   switch (path) {
     case "":
     case "/":
@@ -36,6 +36,9 @@ const handleLocation = async () => {
       break;
     case "category":
       await categoryPage();
+      break;
+    case "search":
+      await searchPage();
       break;
     default:
       // halaman 404

@@ -1,22 +1,24 @@
-import { getAllProducts } from "../services/product.service.js";
-import { route, handleLocation } from "../../router.js";
+import { searchProduct } from "../services/product.service.js";
+import { route } from "../router.js";
 
-const AllProducts = () => {
-  return ` <!-- All Products -->
-    <section id="all-products" class="mt-6">
-      <div class="container mx-auto px-4 md:px-8 xl:px-16">
-        <h2 class="text-lg font-bold text-slate-800">All Poducts</h2>
-        <div class="all-products-container flex flex-wrap justify-between gap-y-8 p-2"></div>
-      </div>
-    </section>
-    <!-- _All Products -->`;
+const SearchProduct = () => {
+  return `
+     <div class="content-wrapper min-h-[calc(100vh-(64px+16px+58px))] container mx-auto   mt-[calc(56px+16px)] xl:mt-[calc(64px+16px)]  px-4 md:px-8 xl:px-16">
+     <div class="product-wrapper grid grid-cols-2 items-start md:grid-cols-2 lg:grid-cols-4 gap-2 lg:gap-x-8  lg:gap-y-8"></div>
+     </div>
+  `;
 };
 
-const allProductsOnMount = async () => {
-  const products = await getAllProducts();
-  const allProductsContainer = document.querySelector("section#all-products .all-products-container");
-  products.map((product) => {
-    allProductsContainer.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] lg:w-[24%]  overflow-hidden rounded-xl shadow">
+const searchProductOnMount = async () => {
+  const productWrapper = document.querySelector(".product-wrapper");
+
+  const query = window.location.pathname.split("/")[2];
+
+  const products = await searchProduct(query);
+
+  if (products.length > 0) {
+    products.forEach((product) => {
+      productWrapper.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="product-card w-full lg:w-full  overflow-hidden rounded-xl shadow">
             <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
               <button class="absolute right-4 top-4 z-20">
                 <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
@@ -41,15 +43,23 @@ const allProductsOnMount = async () => {
               </div>
             </div>
           </a>`;
-  });
-
-  // Routing Handler
-  const productCards = document.querySelectorAll("section#all-products .all-products-container .product-card");
-  productCards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      route(card, e);
     });
-  });
+
+    // Routing Handler
+    const productCards = document.querySelectorAll(".product-card");
+    productCards.forEach((card) => {
+      card.addEventListener("click", (e) => {
+        route(card, e);
+      });
+    });
+  } else {
+    const contentWrapper = document.querySelector(".content-wrapper");
+    contentWrapper.innerHTML = `
+    <div class="flex h-full w-full  justify-center items-center">
+    <h1 class="text-pretty font-bold text-slate-800 text-center">No product found</h1>
+    </div>
+    `;
+  }
 };
 
-export { AllProducts, allProductsOnMount };
+export { SearchProduct, searchProductOnMount };

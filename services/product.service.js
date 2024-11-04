@@ -25,6 +25,16 @@ const getProductByCategory = async (category) => {
   return products;
 };
 
+const searchProduct = async (query) => {
+  console.log(query);
+
+  const products = await getAllProducts();
+  console.log(products);
+  return products.filter((product) => {
+    return product.title.toLowerCase().includes(query.toLowerCase());
+  });
+};
+
 const getBestProducts = async () => {
   const products = await getAllProducts();
   const minRate = 4;
@@ -33,4 +43,4 @@ const getBestProducts = async () => {
   });
 };
 
-export { getAllProducts, getBestProducts, getProduct, getProductByCategory };
+export { getAllProducts, getBestProducts, getProduct, getProductByCategory, searchProduct };

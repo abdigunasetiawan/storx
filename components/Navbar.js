@@ -1,9 +1,12 @@
+import { searchProduct } from "../services/product.service.js";
+import { route } from "../router.js";
+
 const Navbar = () => {
   return `
     <div class="navbar fixed left-0 top-0 z-50 w-full bg-white shadow">
       <div class="container mx-auto flex h-14 w-full items-center justify-between px-4 md:gap-x-12 md:px-8 xl:h-16 xl:px-16">
         <!-- Logo -->
-        <a href class="flex items-center gap-2">
+        <a href="/" class="flex items-center gap-2">
           <svg xmlns="http://www.w3.org/2000/svg" width="48" height="26" fill="none" viewBox="0 0 48 26">
             <path fill="#000" d="M45.8 9.087a5.323 5.323 0 1 1-7.528-7.528A5.323 5.323 0 0 1 45.8 9.087Z" opacity=".4" />
             <path fill="#000" d="M45.795 9.086a5.323 5.323 0 0 1-7.528 0l-7.434-7.434a5.323 5.323 0 1 0-7.528 7.528l7.434 7.434a5.323 5.323 0 0 0 7.528 0l7.528-7.528Z" opacity=".6" />
@@ -13,14 +16,14 @@ const Navbar = () => {
         </a>
         <!-- _Logo -->
         <!-- Search Form -->
-        <form action="" class="hidden w-full md:block xl:max-w-xl">
-          <div class="relative flex h-10 items-center rounded-full border py-2 pl-10 pr-0">
-            <svg class="absolute left-2 w-6 stroke-gray-500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
+        <form  id="formSearch" class="hidden w-full md:block xl:max-w-xl">
+          <div class="relative flex h-10 items-center rounded-full overflow-hidden border py-2 pl-10 pr-0">
+            <svg class="absolute left-2 w-6 stroke-gray-500 z-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-search">
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M10 10m-7 0a7 7 0 1 0 14 0a7 7 0 1 0 -14 0" />
               <path d="M21 21l-6 -6" />
             </svg>
-            <input class="absolute inset-0 bg-transparent pl-10 outline-none" type="text" placeholder="Search Product..." />
+            <input id="inputSearch" name="inputSearch" class="absolute inset-0 bg-transparent pl-10 outline-none" type="text" placeholder="Search Product..." />
           </div>
         </form>
         <!-- _Search Form -->
@@ -56,4 +59,13 @@ const Navbar = () => {
     `;
 };
 
-export { Navbar };
+const navbarOnMount = () => {
+  const formSearch = document.getElementById("formSearch");
+  const inputSearch = document.getElementById("inputSearch");
+  formSearch.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    route(`/search/${inputSearch.value}`, e);
+  });
+};
+
+export { Navbar, navbarOnMount };

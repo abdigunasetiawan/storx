@@ -1,4 +1,4 @@
-import { Navbar } from "/components/Navbar.js";
+import { Navbar, navbarOnMount } from "../components/Navbar.js";
 import { Jumbotron, jumbotronOnMount } from "../components/Jumbotron.js";
 import { BestProducts, bestProductsOnMount } from "../components/BestProducts.js";
 import { Category, categoryOnMount } from "../components/Category.js";
@@ -17,6 +17,7 @@ const homePage = async () => {
   const root = document.getElementById("root");
   root.innerHTML = homePageContent;
 
+  await navbarOnMount();
   jumbotronOnMount();
   await bestProductsOnMount();
   await allProductsOnMount();
