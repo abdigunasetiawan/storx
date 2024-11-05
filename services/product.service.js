@@ -19,15 +19,10 @@ const getProductByCategory = async (category) => {
   }
 
   const products = await fetch(`https://fakestoreapi.com/products/category/${categoryParams}`).then((response) => response.json());
-  console.log(category);
-  console.log(categoryParams);
-
   return products;
 };
 
 const searchProduct = async (query) => {
-  console.log(query);
-
   const products = await getAllProducts();
   console.log(products);
   return products.filter((product) => {

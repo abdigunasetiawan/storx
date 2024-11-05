@@ -6,19 +6,11 @@ import { searchPage } from "./pages/searchPage.js";
 const route = (link, event) => {
   event.preventDefault();
 
-  console.log("route trigered");
   event = event || window.event;
   if (window.location.pathname !== link) {
-    console.log("history pushed");
-
     window.history.pushState({}, "", link);
-    console.log("link tidak sama");
     handleLocation();
-  } else {
-    console.log("link sama");
   }
-
-  console.log(window.history);
 };
 
 const handleLocation = async () => {

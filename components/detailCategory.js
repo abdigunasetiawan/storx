@@ -1,4 +1,5 @@
 import { getProductByCategory } from "../services/product.service.js";
+import { route } from "../router.js";
 
 const detailCategory = () => {
   return `
@@ -56,6 +57,13 @@ const detailCategoryOnMount = async () => {
               </div>
             </div>
           </a>`;
+  });
+
+  const productCard = document.querySelectorAll(".product-card");
+  productCard.forEach((product) => {
+    product.addEventListener("click", (e) => {
+      route(product, e);
+    });
   });
 };
 
