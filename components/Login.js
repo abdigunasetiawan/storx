@@ -1,23 +1,8 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+import { login, cekToken } from "../services/auth.service.js";
 
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
-
-    <!-- Helper -->
-    <script defer src="https://cdn.jsdelivr.net/gh/abdigunasetiawan/css-layout-helper/index.js"></script>
-    <link defer rel="stylesheet" href="https://cdn.jsdelivr.net/gh/abdigunasetiawan/css-layout-helper/index.css" />
-
-    <link rel="stylesheet" href="css/output.css" />
-  </head>
-  <body class="flex h-screen items-center justify-center bg-slate-50">
-    <div class="container mx-auto px-4 md:px-8 xl:px-16">
+const Login = () => {
+  return `<div class="flex min-h-screen justify-center items-center">
+  <div class="container mx-auto px-4 md:px-8 xl:px-16">
       <div class="mx-auto max-w-xs rounded-md bg-white px-4 py-8 shadow-sm xl:max-w-sm xl:px-8">
         <div class="">
           <svg class="mx-auto w-16" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 48 26">
@@ -27,7 +12,7 @@
           </svg>
         </div>
 
-        <form class="mx-auto flex flex-col gap-2">
+        <form class="mx-auto flex flex-col gap-2" name="login" method="post">
           <div class="flex flex-col gap-1">
             <label class="font-bold text-slate-700" for="username">Username</label>
             <input class="h-8 rounded-md border border-slate-600 px-2" type="text" name="username" placeholder="johnd" />
@@ -37,9 +22,10 @@
             <input class="h-8 rounded-md border border-slate-600 px-2" type="password" name="password" placeholder="m38rmF$" />
           </div>
           <div class="mt-2">
-            <button class="w-full rounded-md bg-black py-2.5 font-medium text-white">Login</button>
+            <button id="login-button" class="w-full rounded-md bg-black py-2.5 font-medium text-white">Login</button>
           </div>
           <div class="text-center">
+          <p id="login-status" class="font-medium text-sm hidden text-red-500">Invalid Username or Password, Please try again</p>
             <span class="text-sm">
               Don't have an Accout?
               <a class="font-medium" href="">Sign Up</a>
@@ -47,6 +33,28 @@
           </div>
         </form>
       </div>
-    </div>
-  </body>
-</html>
+      </div>
+    </div>`;
+};
+
+const loginOnMount = () => {
+  const form = document.querySelector("form[name=login]");
+  form.addEventListener("submit", async (event) => {
+    const statusText = document.getElementById("login-status");
+    statusText.classList.add("hidden");
+    event.preventDefault();
+    const formData = new FormData(form);
+    const username = formData.get("username");
+    const password = formData.get("password");
+
+    const result = await login(username, password);
+    if (!result.status) {
+      statusText.classList.remove("hidden");
+    } else {
+      localStorage.setItem("token", result.data.token);
+      cekToken();
+    }
+  });
+};
+
+export { Login, loginOnMount };

@@ -2,11 +2,9 @@ import { homePage } from "./pages/homePage.js";
 import { detailProductPage } from "./pages/detailProductPage.js";
 import { categoryPage } from "./pages/categoryPage.js";
 import { searchPage } from "./pages/searchPage.js";
+import { loginPage } from "./pages/loginPage.js";
 
-const route = (link, event) => {
-  event.preventDefault();
-
-  event = event || window.event;
+const route = (link) => {
   if (window.location.pathname !== link) {
     window.history.pushState({}, "", link);
     handleLocation();
@@ -31,6 +29,9 @@ const handleLocation = async () => {
       break;
     case "search":
       await searchPage();
+      break;
+    case "login":
+      await loginPage();
       break;
     default:
       // halaman 404
