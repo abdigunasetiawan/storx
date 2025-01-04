@@ -1,7 +1,7 @@
 import { route, handleLocation } from "../../router.js";
 
 const Category = () => {
-  return `<!-- Category -->
+    return `<!-- Category -->
   <section id="category" class="mt-6">
     <div class="container mx-auto px-4 md:px-8 xl:px-16">
       <h2 class="text-center text-lg font-bold text-slate-800">Category</h2>
@@ -30,12 +30,13 @@ const Category = () => {
 };
 
 const categoryOnMount = () => {
-  const categorys = document.querySelectorAll(".product-category");
-  categorys.forEach((category) => {
-    category.addEventListener("click", (e) => {
-      route(category, e);
+    const categorys = document.querySelectorAll(".product-category");
+    categorys.forEach((category) => {
+        category.addEventListener("click", (e) => {
+            e.preventDefault();
+            route(category, e);
+        });
     });
-  });
 };
 
 export { Category, categoryOnMount };

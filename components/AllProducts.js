@@ -2,7 +2,7 @@ import { getAllProducts } from "../services/product.service.js";
 import { route, handleLocation } from "../../router.js";
 
 const AllProducts = () => {
-  return ` <!-- All Products -->
+    return ` <!-- All Products -->
     <section id="all-products" class="mt-6">
       <div class="container mx-auto px-4 md:px-8 xl:px-16">
         <h2 class="text-lg font-bold text-slate-800">All Poducts</h2>
@@ -13,10 +13,10 @@ const AllProducts = () => {
 };
 
 const allProductsOnMount = async () => {
-  const products = await getAllProducts();
-  const allProductsContainer = document.querySelector("section#all-products .all-products-container");
-  products.map((product) => {
-    allProductsContainer.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] lg:w-[24%]  overflow-hidden rounded-xl shadow">
+    const products = await getAllProducts();
+    const allProductsContainer = document.querySelector("section#all-products .all-products-container");
+    products.map((product) => {
+        allProductsContainer.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="product-card w-[48%] lg:w-[24%]  overflow-hidden rounded-xl shadow">
             <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
               <button class="absolute right-4 top-4 z-20">
                 <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
@@ -41,15 +41,16 @@ const allProductsOnMount = async () => {
               </div>
             </div>
           </a>`;
-  });
-
-  // Routing Handler
-  const productCards = document.querySelectorAll("section#all-products .all-products-container .product-card");
-  productCards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      route(card, e);
     });
-  });
+
+    // Routing Handler
+    const productCards = document.querySelectorAll("section#all-products .all-products-container .product-card");
+    productCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+            e.preventDefault();
+            route(card, e);
+        });
+    });
 };
 
 export { AllProducts, allProductsOnMount };

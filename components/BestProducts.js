@@ -2,7 +2,7 @@ import { getBestProducts } from "../services/product.service.js";
 import { route, handleLocation } from "../../router.js";
 
 const BestProducts = () => {
-  return `<!-- Best Products -->
+    return `<!-- Best Products -->
     <section id="best-products" class="mt-6">
       <div class="container mx-auto px-4 md:px-8 xl:px-16">
         <h2 class="text-lg font-bold text-slate-800">Discover Our Best Poducts!</h2>
@@ -32,10 +32,10 @@ const BestProducts = () => {
 };
 
 const bestProductsOnMount = async () => {
-  const products = await getBestProducts();
-  const bestProductsContainer = document.querySelector(".best-products-container");
-  products.map((product) => {
-    bestProductsContainer.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="cursor-pointer pointer-events-auto w-[48%] shrink-0 lg:w-[24%] overflow-hidden rounded-xl  product-card">
+    const products = await getBestProducts();
+    const bestProductsContainer = document.querySelector(".best-products-container");
+    products.map((product) => {
+        bestProductsContainer.innerHTML += `<a href="/product/${product.id}" data-id="${product.id}" class="cursor-pointer pointer-events-auto w-[48%] shrink-0 lg:w-[24%] overflow-hidden rounded-xl  product-card">
             <div class="group relative h-52 overflow-hidden from-black/10 from-5% to-white/0 p-4 after:absolute after:inset-0 after:z-10 after:w-full after:bg-gradient-to-t">
               <button class="absolute right-4 top-4 z-20">
                 <svg class="stroke-black" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
@@ -60,52 +60,53 @@ const bestProductsOnMount = async () => {
               </div>
             </div>
           </a>`;
-  });
-
-  bestProductsScrollerHandler();
-
-  // Routing Handler
-  const productCards = document.querySelectorAll(".product-card");
-  productCards.forEach((card) => {
-    card.addEventListener("click", (e) => {
-      route(card, e);
     });
-  });
+
+    bestProductsScrollerHandler();
+
+    // Routing Handler
+    const productCards = document.querySelectorAll(".product-card");
+    productCards.forEach((card) => {
+        card.addEventListener("click", (e) => {
+            e.preventDefault();
+            route(card, e);
+        });
+    });
 };
 
 // Best Products Scroller
 const bestProductsScrollerHandler = () => {
-  const bestProductsContainer = document.querySelector(".best-products-container");
-  const bestProductsLeftButton = document.querySelector("section#best-products button.btn-navigation-left");
-  const bestProductsRightButton = document.querySelector("section#best-products button.btn-navigation-right");
+    const bestProductsContainer = document.querySelector(".best-products-container");
+    const bestProductsLeftButton = document.querySelector("section#best-products button.btn-navigation-left");
+    const bestProductsRightButton = document.querySelector("section#best-products button.btn-navigation-right");
 
-  const updateBestProductsButtons = () => {
-    const maxScrollLeft = bestProductsContainer.scrollWidth - bestProductsContainer.clientWidth;
+    const updateBestProductsButtons = () => {
+        const maxScrollLeft = bestProductsContainer.scrollWidth - bestProductsContainer.clientWidth;
 
-    if (bestProductsContainer.scrollLeft === 0) {
-      bestProductsLeftButton.style.visibility = "hidden";
-    } else {
-      bestProductsLeftButton.style.visibility = "visible";
-    }
+        if (bestProductsContainer.scrollLeft === 0) {
+            bestProductsLeftButton.style.visibility = "hidden";
+        } else {
+            bestProductsLeftButton.style.visibility = "visible";
+        }
 
-    if (bestProductsContainer.scrollLeft >= maxScrollLeft) {
-      bestProductsRightButton.style.visibility = "hidden";
-    } else {
-      bestProductsRightButton.style.visibility = "visible";
-    }
-  };
+        if (bestProductsContainer.scrollLeft >= maxScrollLeft) {
+            bestProductsRightButton.style.visibility = "hidden";
+        } else {
+            bestProductsRightButton.style.visibility = "visible";
+        }
+    };
 
-  updateBestProductsButtons();
+    updateBestProductsButtons();
 
-  bestProductsContainer.addEventListener("scroll", updateBestProductsButtons);
+    bestProductsContainer.addEventListener("scroll", updateBestProductsButtons);
 
-  bestProductsLeftButton.addEventListener("click", () => {
-    bestProductsContainer.scrollLeft -= bestProductsContainer.clientWidth;
-  });
+    bestProductsLeftButton.addEventListener("click", () => {
+        bestProductsContainer.scrollLeft -= bestProductsContainer.clientWidth;
+    });
 
-  bestProductsRightButton.addEventListener("click", () => {
-    bestProductsContainer.scrollLeft += bestProductsContainer.clientWidth;
-  });
+    bestProductsRightButton.addEventListener("click", () => {
+        bestProductsContainer.scrollLeft += bestProductsContainer.clientWidth;
+    });
 };
 
 export { BestProducts, bestProductsOnMount };
